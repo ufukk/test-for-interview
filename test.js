@@ -35,8 +35,10 @@ tape('should respond base64', (t) => {
   })
 })
 
-
 tape('cleanup', function (t) {
   server.close()
+  server.closeAllConnections()
+  const { exit } = require('node:process');
+  exit(1);
   t.end()
 })
